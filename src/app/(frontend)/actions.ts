@@ -3,10 +3,8 @@ import config from "@payload-config";
 import { revalidatePath } from "next/cache";
 import { getPayload } from "payload";
 
-const payload = await getPayload({config});
-
 export async function oppdaterJulegave(id: number, formData: FormData) {
-    //const payload = await getPayload({ config });
+    const payload = await getPayload({ config });
     const navn = formData.get("navn");
     const mottaker = formData.get("mottaker");
 
@@ -33,8 +31,7 @@ export async function oppdaterJulegave(id: number, formData: FormData) {
 
 export async function slettJulegave(id: number) {
     const payload = await getPayload({ config });
-
-    //TODO: Sjekk om vi har id osv
+    
     if(typeof id !== "number") {
         throw new Error("Feil id-type");
     }

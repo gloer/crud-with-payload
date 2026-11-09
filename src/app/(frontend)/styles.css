@@ -62,6 +62,16 @@ code {
   padding: 0.1em 0.5em;
 }
 
+.julegave-skjema {
+  display: flex;
+  gap: 0.5rem;  
+
+  label {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
 .julegaver {
   display: grid;
   grid-template-columns: repeat(6, auto);
