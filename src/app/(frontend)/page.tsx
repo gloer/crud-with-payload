@@ -1,4 +1,4 @@
-import { hentJulegaver, leggTilJulegave, slettJulegave } from "./actions";
+import { hentJulegaver, leggTilJulegave, oppdaterJulegave, slettJulegave } from "./actions";
 
 export default async function HomePage() {
   const julegaver = await hentJulegaver();
@@ -17,6 +17,7 @@ export default async function HomePage() {
         <button type="submit">Legg til julegave</button>
       </form>
       <hr />
+
       <section className="julegaver">
         {
           julegaver.length === 0 ? (
@@ -25,7 +26,7 @@ export default async function HomePage() {
             (
               julegaver.map(julegave => (
                 <article key={julegave.id}>
-                  <form>
+                  <form action={oppdaterJulegave.bind(null, julegave.id)}>
                     <label>
                       <span>Julegave</span>
                       <input

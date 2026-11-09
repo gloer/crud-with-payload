@@ -3,6 +3,34 @@ import config from "@payload-config";
 import { revalidatePath } from "next/cache";
 import { getPayload } from "payload";
 
+const payload = await getPayload({config});
+
+export async function oppdaterJulegave(id: number, formData: FormData) {
+    //const payload = await getPayload({ config });
+    const navn = formData.get("navn");
+    const mottaker = formData.get("mottaker");
+
+    if(
+        typeof navn !== "string" ||
+        typeof mottaker !== "string" ||
+        !navn.trim() ||
+        !mottaker.trim()
+    ) {
+        throw new Error("Feil i data");
+    }
+
+    await payload.update({
+        collection: "julegaver",
+        id,
+        data: {
+            navn: navn.trim(),
+            mottaker: mottaker.trim(),
+        }
+    });
+
+    revalidatePath("/");
+}
+
 export async function slettJulegave(id: number) {
     const payload = await getPayload({ config });
 
