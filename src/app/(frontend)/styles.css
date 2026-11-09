@@ -79,6 +79,10 @@ code {
     &:nth-of-type(odd) {
       background-color: #eee;
     }
+
+    button {
+      cursor: pointer;
+    }
   }
 
   form,

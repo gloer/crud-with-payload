@@ -50,7 +50,7 @@ export default async function HomePage() {
 
                   </form>
                   <form action={slettJulegave.bind(null, julegave.id)}>
-                    <button type="submit">SLETT DENNE GAVEN</button>
+                    <button type="submit" title="Slett denne gaven">X</button>
                   </form>
                 </article>
               )))
