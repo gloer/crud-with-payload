@@ -29,15 +29,13 @@ export const Julegaver: CollectionConfig = {
             name: "pris",
             label: "Hva koster gaven",
             type: "number",
-            defaultValue: 100,
-            required: true,
+            defaultValue: 100,            
         },
         {
             name: "kjopt",
             label: "Er gaven kjøp inn",
             type: "checkbox",
-            defaultValue: false,
-            required: true,
+            defaultValue: false,            
         },
     ],
 };

@@ -172,8 +172,8 @@ export interface Julegaver {
   id: number;
   navn: string;
   mottaker: string;
-  pris: number;
-  kjopt: boolean;
+  pris?: number | null;
+  kjopt?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
